@@ -5,18 +5,46 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      button: false,
-      render: (
-        <Landing
-          renderA={this.compRenderA}
-          renderS={this.compRenderS}
-          renderP={this.compRenderP}
-          renderE={this.comprenderE}
-        />
-      ),
+      button: true,
+      isTop: true,
+      scrolled: false,
+      // render: (
+      //   <Landing
+      //     renderA={this.compRenderA}
+      //     renderS={this.compRenderS}
+      //     renderP={this.compRenderP}
+      //     renderE={this.comprenderE}
+      //   />
+      // ),
+      render: <Projects />,
+
+      // Development State
     };
   }
 
+  // Navigation
+  componentDidMount() {
+    window.addEventListener('scroll', () => {
+      const isTop = window.scrollY < 100;
+      if (isTop !== this.state.isTop) {
+        this.sideNavCheckerF();
+        this.navScroll();
+      } else {
+        this.sideNavChecker();
+        this.setState({ scrolled: false });
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.navScroll);
+  }
+
+  navScroll = () => {
+    this.setState({ scrolled: true });
+  };
+
+  // Click Handlers
   clickHandler = () => {
     let state = this.state.button;
     this.setState({ button: !state });
@@ -26,9 +54,17 @@ class App extends Component {
     this.setState({ render: compName });
   }
 
+  // Sets to True
   sideNavChecker = () => {
     if (this.state.button === false) {
       this.setState({ button: true });
+    }
+  };
+
+  // Sets to False
+  sideNavCheckerF = () => {
+    if (this.state.button === true) {
+      this.setState({ button: false });
     }
   };
 
@@ -76,7 +112,9 @@ class App extends Component {
     return (
       <div className="main_container">
         {/* Navigation */}
-        <div className="navigation">
+        <div
+          className={this.state.scrolled ? 'navigation scrolled' : 'navigation'}
+        >
           <div className="nav_head">
             <p onClick={this.clickHandler}>K/J</p>
           </div>

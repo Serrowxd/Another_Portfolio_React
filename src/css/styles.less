@@ -37,6 +37,7 @@ a {
 // Colors
 @black: #2f2f2f;
 @blacker: #232323;
+@matblack: #424242;
 @blackOP70: rgba(47, 47, 47, 0.7);
 @white: white;
 @blue: rgb(24, 215, 221);
@@ -116,6 +117,11 @@ a {
       cursor: pointer;
     }
   }
+}
+
+.scrolled {
+  position: fixed;
+  background-color: @blackOP70;
 }
 
 // ***
@@ -240,22 +246,199 @@ a {
 
 .projects_container {
   width: 100%;
-  height: 75%;
-  margin-top: 4rem;
+  height: 85%;
+  // margin-top: 2rem;
   align-self: center;
   flex-wrap: wrap;
-  padding: 5.5rem;
+  padding: 0.5rem;
   justify-content: space-around;
+  align-items: center;
+  padding-top: 0;
+  // padding-left: 5.5rem;
 
-  position: relative;
-  overflow: auto;
-
-  background-color: @white500;
+  // background-color: @matblack;
 
   img {
     width: auto;
-    padding-bottom: 2rem;
-    height: 25rem;
+    height: 38rem;
+  }
+}
+
+.project_div {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 1rem;
+
+  img {
+    transition: 0.25s;
+  }
+
+  &:hover {
+    img {
+      opacity: 0.2;
+    }
+
+    h1 {
+      visibility: visible;
+      margin-bottom: 1rem;
+    }
+
+    cursor: pointer;
+  }
+
+  h1 {
+    visibility: hidden;
+    font-size: 4rem;
+    color: @blue;
+    transition: 0.25s;
+  }
+}
+
+.project_text {
+  flex-direction: column;
+  position: absolute;
+  text-align: center;
+}
+
+// Project Modal
+
+.modal {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(47, 47, 47, 0.9);
+  transition: 0.25s;
+  z-index: 2;
+}
+
+.modal_show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal_hide {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.modal_row {
+  width: 100%;
+  justify-content: space-around;
+
+  @media @tablet {
+    height: 90%;
+  }
+}
+
+.modal_col {
+  flex-direction: column;
+  width: 50%;
+  justify-content: space-around;
+  align-items: center;
+
+  h1 {
+    font-size: 7rem;
+    margin-bottom: 0;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1.5rem;
+  }
+
+  img {
+    width: auto;
+    height: 40rem;
+  }
+
+  .nested {
+    width: 70%;
+    justify-content: space-around;
+  }
+
+  @media @semiwidescreen {
+    h1 {
+      font-size: 5rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    img {
+      height: 30rem;
+    }
+  }
+
+  @media @tablet {
+    width: 100%;
+    position: fixed;
+    align-self: center;
+    height: 70%;
+
+    h1 {
+      margin: 0;
+      font-size: 7rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+    }
+
+    img {
+      display: none;
+    }
+  }
+
+  @media @phone {
+    h1 {
+      font-size: 3.5rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    button {
+      margin: 0.5rem;
+    }
+  }
+}
+
+.exit_button {
+  align-self: flex-end;
+  margin-right: 8rem;
+  width: 2.5rem;
+  z-index: 2;
+
+  @media @desktop {
+    margin-right: 4rem;
+    width: 2rem;
+  }
+
+  @media @phone {
+    margin-right: 0.75rem;
   }
 }
 
