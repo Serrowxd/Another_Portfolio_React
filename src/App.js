@@ -5,7 +5,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      button: true,
+      button: false,
       isTop: true,
       scrolled: false,
       render: (
