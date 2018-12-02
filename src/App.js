@@ -8,16 +8,16 @@ class App extends Component {
       button: true,
       isTop: true,
       scrolled: false,
-      // render: (
-      //   <Landing
-      //     renderA={this.compRenderA}
-      //     renderS={this.compRenderS}
-      //     renderP={this.compRenderP}
-      //     renderE={this.comprenderE}
-      //   />
-      // ),
-      render: <Projects />,
+      render: (
+        <Landing
+          renderA={this.compRenderA}
+          renderS={this.compRenderS}
+          renderP={this.compRenderP}
+          renderE={this.comprenderE}
+        />
+      ),
 
+      // render: <Projects />,
       // Development State
     };
   }
