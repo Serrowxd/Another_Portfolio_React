@@ -6,4 +6,4 @@ This is the `DEPLOYMENT` of my revamped portfolio - I copy/paste the work from [
 
 [Deployment](https://epic-swanson-dd08b4.netlify.com/)
 
-This repository might be abandoned at a future date.
+This repository is no longer maintained in favor of utilizing a single deployment via the main repository.
